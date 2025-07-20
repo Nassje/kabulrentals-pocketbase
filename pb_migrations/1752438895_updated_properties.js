@@ -1,0 +1,42 @@
+/// <reference path="../pb_data/types.d.ts" />
+migrate((app) => {
+  const collection = app.findCollectionByNameOrId("pbc_2037580119")
+
+  // update field
+  collection.fields.addAt(11, new Field({
+    "hidden": false,
+    "id": "file3760176746",
+    "maxSelect": 99,
+    "maxSize": 10485760,
+    "mimeTypes": [],
+    "name": "images",
+    "presentable": false,
+    "protected": false,
+    "required": false,
+    "system": false,
+    "thumbs": [],
+    "type": "file"
+  }))
+
+  return app.save(collection)
+}, (app) => {
+  const collection = app.findCollectionByNameOrId("pbc_2037580119")
+
+  // update field
+  collection.fields.addAt(11, new Field({
+    "hidden": false,
+    "id": "file3760176746",
+    "maxSelect": 99,
+    "maxSize": 0,
+    "mimeTypes": [],
+    "name": "images",
+    "presentable": false,
+    "protected": false,
+    "required": false,
+    "system": false,
+    "thumbs": [],
+    "type": "file"
+  }))
+
+  return app.save(collection)
+})
