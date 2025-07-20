@@ -1,5 +1,3 @@
-# PocketBase for KabulRentals
-
 FROM alpine:latest
 
 ARG PB_VERSION=0.26.1
@@ -12,7 +10,9 @@ ADD https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/po
 RUN unzip /tmp/pb.zip -d /pb/
 
 COPY ./pb_migrations /pb/pb_migrations
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
 
 EXPOSE 8080
 
-CMD ["/pb/pocketbase", "serve", "--http=0.0.0.0:8080"]
+CMD ["/docker-entrypoint.sh"]
