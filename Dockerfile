@@ -1,3 +1,5 @@
+# PocketBase for KabulRentals
+
 FROM alpine:latest
 
 ARG PB_VERSION=0.26.1
